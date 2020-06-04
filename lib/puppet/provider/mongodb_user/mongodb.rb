@@ -56,7 +56,7 @@ Puppet::Type.type(:mongodb_user).provide(:mongodb, parent: Puppet::Provider::Mon
       if mongo_4?
         # SCRAM-SHA-256 requires digestPassword to be true.
         if @resource[:password]
-          command[pwd] = @resource[:password]
+          command[:pwd] = @resource[:password]
         end
         command.delete(:digestpassword)
         command[:mechanisms] = ['SCRAM-SHA-1']
