@@ -183,4 +183,13 @@ class Puppet::Provider::Mongodb < Puppet::Provider
   def mongo_4?
     self.class.mongo_4?
   end
+
+  def self.mongo_44?
+    v = mongo_version
+    !v[%r{^4\.4\.}].nil?
+  end
+
+  def mongo_44?
+    self.class.mongo_44?
+  end
 end
